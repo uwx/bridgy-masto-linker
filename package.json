@@ -1,9 +1,9 @@
 {
   "name": "bridgy-masto-linker",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
-  "description": "Description goes here",
+  "description": "Adds a link to the original post on Mastodon for bridged Bluesky posts",
   "author": {
     "name": "uwx"
   },

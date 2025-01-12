@@ -33,22 +33,23 @@ setInterval(() => {
 
         processedElements.add(element);
 
-        const fiber = findFiberByProps(element, props => props?.record?.bridgyOriginalUrl);
-        if (fiber) {
-            const originalUrl = fiber.memoizedProps.record.bridgyOriginalUrl;
-            
-            const button = document.createElement('button');
-            button.textContent = '🌐';
-            button.onclick = e => {
-                e.stopPropagation();
-                e.preventDefault();
+        const fiber = findFiberByProps(element, props => props?.record);
+        if (!fiber) continue;
 
-                document.location.href = originalUrl;
-            };
-
-            if (!buttons) continue;
+        const originalUrl = fiber.memoizedProps.record.bridgyOriginalUrl;
+        if (!originalUrl) continue;
         
-            buttons.append(button);
-        }
+        const button = document.createElement('button');
+        button.textContent = '🌐';
+        button.onclick = e => {
+            e.stopPropagation();
+            e.preventDefault();
+
+            document.location.href = originalUrl;
+        };
+
+        if (!buttons) continue;
+    
+        buttons.append(button);
     }
 }, 250);
