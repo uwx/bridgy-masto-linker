@@ -37,7 +37,8 @@ module.exports = {
             name,
             header: {
                 include: [
-                    'https://example.com/*'
+                    'https://bsky.app/*',
+                    'https://*.bsky.dev/*'
                 ],
                 grant: [
                     'none',
