@@ -33,7 +33,7 @@ setInterval(() => {
 
         processedElements.add(element);
 
-        const fiber = findFiberByProps(element, props => props?.record);
+        const fiber = findFiberByProps(element, props => props?.record?.$type === 'app.bsky.feed.post');
         if (!fiber) continue;
 
         const originalUrl = fiber.memoizedProps.record.bridgyOriginalUrl;
