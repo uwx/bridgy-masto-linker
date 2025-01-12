@@ -1,4 +1,4 @@
-console.log('hello main.ts');
+console.log('hello masto linker world');
 
 const processedElements = new WeakSet();
 
@@ -23,11 +23,10 @@ setInterval(() => {
         return {
             element: e,
             buttons: e.querySelector('[aria-label="Open post options menu"]')?.parentElement!.parentElement!.parentElement,
-            postLink: (e.querySelector('[href^="/profile/"][href*="/post/"]') as HTMLAnchorElement)?.href,
         };
     });
 
-    for (const { element, buttons, postLink } of newElements) {
+    for (const { element, buttons } of newElements) {
         if (processedElements.has(element)) {
             continue;
         }
